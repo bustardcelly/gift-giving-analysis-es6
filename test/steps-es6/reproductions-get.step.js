@@ -1,12 +1,7 @@
 'use strict';
-// output needs to be:
-// "pretest": "./node_modules/.bin/traceur --dir test/steps-es6 test/features/step_definitions --modules=commonjs",
-/**
 
-Object.defineProperty(module, 'exports', {
-  value: $__default;
-});
-*/
+// import ajax from 'promjax'
+// import ReproductionListActions from '../../dist/script/ReproductionListActions'
 
 export function step() {
   
