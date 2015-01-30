@@ -1,0 +1,38 @@
+{
+  "name": "gift-giving-analysis-es6",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prejsx": "rm -rf dist",
+    "jsx": "node ./node_modules/.bin/jsx app/script/ dist/script",
+    "prebuild": "npm run jsx",
+    "prebuild-prod": "npm run jsx",
+    "build": "jspm bundle dist/script/main dist/script/main.js && cp app/index.html dist/index.html",
+    "build-prod": "jspm bundle dist/script/main dist/script/main.js && cp app/index.html dist/index.html",
+    "postbuild-prod": "./node_modules/.bin/uglifyjs dist/script/main.js --source-map   main.js.map --output dist/script/main.js",
+    "pretest": "./node_modules/.bin/gulp test",
+    "test": "cd test && ../node_modules/.bin/cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "dependencies": {
+      "eventemitter3": "npm:eventemitter3@^0.1.6",
+      "flux": "npm:flux@^2.0.1",
+      "flux-react-dispatcher": "npm:flux-react-dispatcher@^1.2.4",
+      "object-assign": "npm:object-assign@^2.0.0",
+      "promjax": "npm:promjax@^0.0.3",
+      "react": "^0.12.2"
+    }
+  },
+  "devDependencies": {
+    "cucumber": "^0.4.7",
+    "react-tools": "^0.12.2",
+    "uglify-js": "^2.4.16",
+    "traceur": "0.0.82",
+    "gulp": "^3.8.10",
+    "gulp-traceur": "^0.16.0",
+    "gulp-replace": "^0.5.2"
+  }
+}
