@@ -8,5 +8,6 @@ config.js
 
 dist
 build
+bundle
 
 gga-*.sublime-*

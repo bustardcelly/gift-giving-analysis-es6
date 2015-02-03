@@ -11,13 +11,16 @@
     "postbuild": "rm -rf build",
     "build-prod": "npm run build",
     "postbuild-prod": "npm run postbuild && ./node_modules/.bin/uglifyjs dist/script/main.js --source-map   main.js.map --output dist/script/main.js",
-    "pretest": "./node_modules/.bin/gulp test",
-    "test": "cd test && ../node_modules/.bin/cucumber-js"
+    "prebundle": "node ./node_modules/.bin/jsx app/script/ build/script",
+    "bundle": "jspm bundle-sfx test/steps-es6/all.steps bundle/script/main.js",
+    "test": "node ./node_modules/.bin/gulp test"
   },
   "author": "",
   "license": "ISC",
   "jspm": {
     "dependencies": {
+      "assert": "^0.1.0",
+      "cucumber": "npm:cucumber@^0.4.7",
       "eventemitter3": "npm:eventemitter3@^0.1.6",
       "flux": "npm:flux@^2.0.1",
       "flux-react-dispatcher": "npm:flux-react-dispatcher@^1.2.4",
@@ -33,6 +36,7 @@
     "traceur": "0.0.82",
     "gulp": "^3.8.10",
     "gulp-traceur": "^0.16.0",
-    "gulp-replace": "^0.5.2"
+    "gulp-replace": "^0.5.2",
+    "glob": "^4.3.5"
   }
 }

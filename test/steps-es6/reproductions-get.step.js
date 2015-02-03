@@ -1,9 +1,11 @@
 'use strict';
 
-// import ajax from 'promjax'
+import ajax from 'promjax';
+import assert from 'assert';
+
 // import ReproductionListActions from '../../dist/script/ReproductionListActions'
 
-export function step() {
+export default function step() {
   
   this.Given(/^I have (\d+) Reproductions in the DB$/, function (arg1, callback) {
     // Write code here that turns the phrase above into concrete actions
