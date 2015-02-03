@@ -1,0 +1,8 @@
+'use strict';
+ 
+$1
+ 
+export default (function() {
+  window.allSteps = [$2];
+  return undefined;
+}());
