@@ -3,6 +3,7 @@
     "module",
     "require"
   ],
+  "esnext": true,
   "curly": true,
   "eqeqeq": true,
   "immed": true,

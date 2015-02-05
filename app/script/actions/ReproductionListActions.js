@@ -1,22 +1,20 @@
 'use strict';
 
-import ajax from 'promjax'
+import ajax from 'qwest'
 import Dispatcher from '../dispatcher/Dispatcher'
 import ReproductionActionEnum from '../enums/ReproductionAction'
 
 var ReproductionListActions = {
 
   all: function() {
-    ajax({
-      url: 'http://54.86.176.185:8001/reproduction',
-      reponseType: 'json'
-    })
-    .then(function(response, request) {
-      Dispatcher.handleAsyncAction({
-        type: ReproductionActionEnum.GET_REPRODUCTIONS,
-        list: JSON.parse(response)
+    ajax
+      .get('http://54.86.176.185:8001/reproduction', null, {responseType:'json'})
+      .then(function(response) {
+        Dispatcher.handleAsyncAction({
+          type: ReproductionActionEnum.GET_REPRODUCTIONS,
+          list: typeof response === 'string' ? JSON.parse(response) : response
+        });
       });
-    });
   }
 
 };

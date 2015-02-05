@@ -14,6 +14,12 @@ $ jspm install
 $ npm run build
 ```
 
+To run under 6to5:
+
+```
+$ jspm -dl-loader --6to5
+```
+
 ### Tests
 
 Uses traceur to convert ES6 steps to CommonJS to be run under CucumberJS.

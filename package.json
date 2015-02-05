@@ -12,7 +12,7 @@
     "build-prod": "npm run build",
     "postbuild-prod": "npm run postbuild && uglifyjs dist/script/main.js --source-map   main.js.map --output dist/script/main.js",
     "prebundle": "npm run jsx",
-    "bundle": "jspm bundle-sfx test/features/step_definitions/all.steps bundle/script/steps.js",
+    "bundle": "jspm bundle-sfx test/features/step_definitions/all.steps bundle/script/steps.js --skip-source-maps",
     "postbundle": "rm -rf build",
     "test": "gulp test",
     "posttest": "npm run bundle"
@@ -22,13 +22,17 @@
   "jspm": {
     "dependencies": {
       "assert": "^0.1.0",
+      "bluebird": "npm:bluebird@^2.9.6",
+      "chai": "npm:chai@^1.10.0",
       "cucumber": "npm:cucumber@^0.4.7",
       "eventemitter3": "npm:eventemitter3@^0.1.6",
-      "flux": "npm:flux@^2.0.1",
       "flux-react-dispatcher": "npm:flux-react-dispatcher@^1.2.4",
       "object-assign": "npm:object-assign@^2.0.0",
       "promjax": "npm:promjax@^0.0.3",
-      "react": "^0.12.2"
+      "qwest": "npm:qwest@^1.5.4",
+      "react": "^0.12.2",
+      "sinon": "npm:sinon@^1.12.2",
+      "sinon-chai": "npm:sinon-chai@^2.6.0"
     }
   },
   "devDependencies": {
@@ -37,8 +41,6 @@
     "uglify-js": "^2.4.16",
     "traceur": "0.0.82",
     "gulp": "^3.8.10",
-    "gulp-traceur": "^0.16.0",
-    "gulp-replace": "^0.5.2",
     "glob": "^4.3.5"
   }
 }
